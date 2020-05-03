@@ -21,7 +21,7 @@
 __all__      = ["traffic_lights"]
 __author__   = "Carlos Luna-Mota"
 __license__  = "The Unlicense"
-__version__  = "20200502"
+__version__  = "20200503"
 
 import random
 import time
@@ -29,6 +29,8 @@ import time
 try: input = raw_input  # Use raw_input function for Python 2
 except NameError: pass  # Use input     function for Python 3
 
+try:              clock = time.clock         # Use clock function for Python 2
+except NameError: clock = time.perf_counter  # Use perf_counter   for Python 3
 
 ### CONSTANTS (DO NOT CHANGE THEM!) ############################################
 
@@ -256,6 +258,6 @@ def traffic_lights(computer, human):
             except: pass
         if play_again in "Nn": break
 
-if __name__ == "__main__": traffic_lights(computer=3, human=INFINITY)
+if __name__ == "__main__": traffic_lights(computer=3, human=3)
 
 ################################################################################
