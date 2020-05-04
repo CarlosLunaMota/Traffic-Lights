@@ -21,7 +21,7 @@
 __all__      = ["traffic_lights"]
 __author__   = "Carlos Luna-Mota"
 __license__  = "The Unlicense"
-__version__  = "20200503"
+__version__  = "20200504"
 
 import random
 import time
@@ -126,7 +126,7 @@ def geneate_AIs(computer, human, preload_info):
     # Pre-load additional information:
     if preload_info:
         print("\n Loading...\n")
-        timer = time.clock()
+        timer = clock()
         BOARD = tuple(0 for _ in range(12))
         if human < computer:
             value = game_value(BOARD, human, human_AI)
@@ -136,7 +136,7 @@ def geneate_AIs(computer, human, preload_info):
             value = game_value(BOARD, computer, computer_AI)
             human_AI.update(computer_AI)
             value = game_value(BOARD, human, human_AI)
-        print(" Game loaded in {:.3f} seconds\n".format(time.clock()-timer))
+        print(" Game loaded in {:.3f} seconds\n".format(clock()-timer))
         print("\n " + "═"*33 + "\n")
 
     # Add basic information:
