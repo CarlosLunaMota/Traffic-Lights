@@ -21,7 +21,7 @@
 __all__      = ["traffic_lights"]
 __author__   = "Carlos Luna-Mota"
 __license__  = "The Unlicense"
-__version__  = "20200504"
+__version__  = "20231108"
 
 import random
 import time
@@ -29,8 +29,8 @@ import time
 try: input = raw_input  # Use raw_input function for Python 2
 except NameError: pass  # Use input     function for Python 3
 
-try:              clock = time.clock         # Use clock function for Python 2
-except NameError: clock = time.perf_counter  # Use perf_counter   for Python 3
+try:                   clock = time.clock         # Use clock function Python 2
+except AttributeError: clock = time.perf_counter  # Use perf_counter   Python 3
 
 ### CONSTANTS (DO NOT CHANGE THEM!) ############################################
 
@@ -227,7 +227,7 @@ def traffic_lights(computer, human):
         # Who plays first?
         turn = "X"
         while not turn in "HhCc":
-            try: turn = input("\n Who plays first? (Human/Computer)\n\n > ")[0]
+            try: turn = input("\n Who plays first? H(uman) / C(omputer)\n\n > ")[0]
             except: pass
         is_computer_turn = turn in "Cc"
 
@@ -254,10 +254,10 @@ def traffic_lights(computer, human):
         # Play again?
         play_again = "?"
         while not play_again in "YyNn":
-            try: play_again = input("\n Play again? (Yes/No)\n\n > ")[0]
+            try: play_again = input("\n Play again? Y(es) / N(o)\n\n > ")[0]
             except: pass
         if play_again in "Nn": break
 
-if __name__ == "__main__": traffic_lights(computer=3, human=3)
+if __name__ == "__main__": traffic_lights(computer=INFINITY, human=INFINITY)
 
 ################################################################################
